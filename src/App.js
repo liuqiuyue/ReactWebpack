@@ -1,5 +1,7 @@
 import React, { Component,Fragment } from 'react'
 import axios from 'axios'
+import { Button } from 'antd';
+
 export class App extends Component {
         constructor(props){
         super(props)
@@ -22,7 +24,7 @@ export class App extends Component {
   // shouldComponentUpdate(nextProps, nextState) {
   //   return nextProps.id !== this.props.id
   // }
- 
+
 componentDidMount(){
   axios.get('https://www.easy-mock.com/mock/5d0340533cdd021957aa67fe/index/country')
       .then((res)=>{console.log('axios 获取数据成功:'+JSON.stringify(res)) 
@@ -37,7 +39,7 @@ componentDidMount(){
             <ul>
                 {
                   this.state.list.map((item,index)=>{
-                    return <li key={index}>{item}</li>
+                    return <li key={index}> <Button type="primary">{item}Button</Button><p>{index}</p><hr/></li>
                   })
                 }
             </ul>  
